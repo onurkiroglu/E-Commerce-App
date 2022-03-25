@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 declare let alertify:any;
 
-@Injectable()
+@Injectable( )
 export class AlertifyService {
 
   constructor() { }
