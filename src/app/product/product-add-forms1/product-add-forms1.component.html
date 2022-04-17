@@ -1,0 +1,79 @@
+<h3>Add new product</h3>
+<form #productAddForm="ngForm" (ngSubmit)="add(productAddForm)">
+  <div class="form-group mb-2">
+    <input
+      type="text"
+      placeholder="Product Name"
+      #name="ngModel"
+      [(ngModel)]="model.name"
+      class="form-control"
+      name="name"
+      id="name"
+      required
+    />
+    <div *ngIf="name.invalid && name.dirty" class="alert alert-danger">
+      Product name is required!
+    </div>
+  </div>
+  <div class="form-group mb-2">
+    <input
+      type="text"
+      placeholder="Description"
+      #description="ngModel"
+      [(ngModel)]="model.description"
+      class="form-control"
+      name="description"
+      id="description"
+      required
+    />
+    <div
+      *ngIf="description.invalid && description.dirty"
+      class="alert alert-danger"
+    >
+      Description is required!
+    </div>
+  </div>
+  <div class="form-group mb-2">
+    <input
+      type="text"
+      placeholder="Product image"
+      #imageUrl="ngModel"
+      [(ngModel)]="model.imageUrl"
+      class="form-control"
+      name="imageUrl"
+      id="imageUrl"
+      required
+    />
+    <div *ngIf="imageUrl.invalid && imageUrl.dirty" class="alert alert-danger">
+      Picture is required
+    </div>
+  </div>
+  <div class="form-group mb-2">
+    <input
+      type="text"
+      placeholder="Product price"
+      #price="ngModel"
+      [(ngModel)]="model.price"
+      class="form-control"
+      name="price"
+      id="price"
+      required
+    />
+    <div *ngIf="price.invalid && price.dirty" class="alert alert-danger">
+      Price is required
+    </div>
+  </div>
+  <div class="form-group mb-2">
+    <select class="form-control" #catedoryId="ngModel" [(ngModel)]="model.categoryId" required id="categoryId" name="categoryId">
+      <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
+    </select>
+
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="productAddForm.invalid"
+  >
+    Add Product
+  </button>
+</form>
