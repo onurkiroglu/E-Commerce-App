@@ -19,8 +19,11 @@
 
     <div class="navbar-nav">
       <div class="nav-item text-nowrap">
-        <a class="nav-link" routerLink="/login">
+        <a *ngIf="isLoggedIn()==false" class="nav-link" routerLink="/login">
           Login
+        </a>
+        <a *ngIf="isLoggedIn()==true" (click)="logout()"class="nav-link" routerLink="/login">
+          Logout
         </a>
       </div>
     </div>
